@@ -1,0 +1,112 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Text Converter</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+
+            h1 {
+                margin-top: 0;
+                text-align: center;
+            }
+
+            .textarea-container {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+
+            .textarea {
+                height: 200px;
+                width: 45%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                resize: none;
+            }
+
+            .result-textarea {
+                background-color: #f44336;
+                color: #fff;
+                border: none;
+            }
+
+            .button-container {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #4caf50;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Text Converter</h1>
+            <div class="textarea-container">
+                <textarea id="userInput" class="textarea" placeholder="Enter your text"></textarea>
+                <textarea id="result" class="textarea result-textarea" placeholder="Converted text" readonly></textarea>
+            </div>
+            <div class="button-container">
+                <button id="toLowerCaseBtn">Lower Case</button>
+                <button id="toUpperCaseBtn">Upper Case</button>
+                <button id="clearBtn">Clear</button>
+            </div>
+        </div>
+
+        <script>
+            var userInput = document.getElementById('userInput');
+            var result = document.getElementById('result');
+            var toLowerCaseBtn = document.getElementById('toLowerCaseBtn');
+            var toUpperCaseBtn = document.getElementById('toUpperCaseBtn');
+            var clearBtn = document.getElementById('clearBtn');
+
+            toLowerCaseBtn.addEventListener('click', function () {
+                var inputText = userInput.value;
+                result.value = inputText.toLowerCase();
+            });
+
+            toUpperCaseBtn.addEventListener('click', function () {
+                var inputText = userInput.value;
+                result.value = inputText.toUpperCase();
+            });
+
+            clearBtn.addEventListener('click', function () {
+                userInput.value = '';
+                result.value = '';
+            });
+        </script>
+    </body>
+
+    </html>
